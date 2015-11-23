@@ -62,7 +62,7 @@ class: topic-template
 
 > In its simplest form, CSAT is expressed as a percentage between 0 and 100, with 100% representing complete customer satisfaction.
 
-Currently we rely upon the customer telling us if they are satisfied but we would like to be able to predict this in the future <i class="twa twa-smile"></i>
+Currently we rely upon the customer telling us if they are satisfied but we want to be able to automate this <i class="twa twa-smile"></i>
 
 ---
 
@@ -75,7 +75,7 @@ background-image: url(./images/confused-donkey.jpg)
 
 ???
 
-* Pacman?  What's this all about?
+* Pacman?  What is this all about?
 
 ---
 
@@ -87,8 +87,8 @@ class: topic-template
 ---
 
 * Gets it's name because it gobbles data, just like the video game character
-* Background service written in Clojure
-* Consumes ticket updates via Maxwell (which talks to Kafka)
+* A Background service written in Clojure
+* Consumes ticket updates via Maxwell (via Kafka)
 * Creates background jobs that are ultimately sent to Crystal Ball for analysis
 
 ---
@@ -102,7 +102,7 @@ background-image: url(./images/monkey-scratching-head.jpg)
 
 ???
 
-* Crystal Ball?  Are we dabbling in black arts now?
+* Crystal Ball?  Are we dabbling in the black arts now?
 
 ---
 
@@ -114,9 +114,9 @@ class: topic-template
 ---
 
 * It's a rather apt name once you understand what it does
-* HTTP API written in Python
+* An HTTP API written in Python
 * Uses machine learning to create a single data model for a customer
-* Generates a CSAT prediction from ticket updates for a given customer data model
+* Generates a CSAT score from ticket updates for a given customer data model
 
 ---
 
@@ -147,11 +147,11 @@ name: csat-flow
 ???
 
 * The Prediction App is the project name given to Pacman & Crystal Ball collectively
-* Here you can see how all the services talk to each other
-* It starts with a ticket update within Classic
-* The ticket update is observed by Maxwell (which uses Kafka)
+* Here you can see how all of the services talk to each other
+* It starts with a ticket update from Classic
+* The ticket update is observed by Maxwell
 * Pacman listens to a particular topic in Maxwell and creates a background job which is bound for Crystal Ball
-* Crystal Ball then process the request and returns a CSAT score
+* Crystal Ball then processes the request and returns a CSAT score
 * The CSAT score is then written back to the ticket via the Classic API
 
 ---
@@ -163,7 +163,7 @@ class: center, middle
 
 ???
 
-* Not only are Pacman & Crystal Ball really intersting and unique, but so is the infrastructure powering them
+* Not only are Pacman & Crystal Ball really interesting and unique, but so is the infrastructure powering them!
 
 ---
 
@@ -177,8 +177,8 @@ class: topic-template
 * First customer oriented application in AWS!
 * Managed by Chef but exists outside of our traditional DC setup
 * Two prediction app clusters:
-  * us-west-1 (married to SAC1 DC)
-  * eu-central-1 (married to DUB1 DC)
+  * us-west-1 (married to SAC1 data center)
+  * eu-central-1 (married to DUB1 center)
 * Both clusters have recently been completely recreated to more powerful instances (took a handful of hours)
 
 ---
@@ -195,7 +195,7 @@ name: satisfaction-app
 * The identical setup exists for infrastructure in the eu-central-1 AWS region except it is married to the DUB1 data center and also connected via a VPN tunnel
 * The main objectives of this architecture are
   * To ensure that a customers data model is only loaded into memory *once*
-  * And to ensure resilience in the event of one or more proxy, app load balancer or app node becoming degraded
+  * And to ensure resilience in the event of one or more proxy, app load balancer or app nodes becoming degraded
 
 ---
 
@@ -219,7 +219,7 @@ OR
 ???
 
 * So that wraps up this presentation
-* If you have any questions about Pacman, Crystal Ball or anything else discussed in this presentation you can email myself or the Bunyip team who are the maintainers of Pacman and Crystal Ball.
+* If you have any questions about Pacman, Crystal Ball or anything else discussed in this presentation you can email me or the Bunyip team who are the maintainers of Pacman and Crystal Ball.
 
 ---
 
@@ -233,7 +233,7 @@ class: center, middle
 
 ???
 
-* Bye for now!
+* Thanks and bye for now!
 
 
 <!-- ------------------------------------------------------------------------------------------- -->
