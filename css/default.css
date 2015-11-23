@@ -11,7 +11,7 @@ body {
   font-size: 2em;
   font-family: 'Droid Serif';
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: "Bebas Neue";
   font-weight: normal;
   letter-spacing: 4px;
@@ -84,6 +84,14 @@ p.image-attribution {
   margin-bottom: 0.4em;
 }
 
+#slide-main h3 {
+  margin-bottom: 0;
+}
+
+#slide-main h4 {
+  margin-top: 0.4em;
+}
+
 #slide-me h1 {
   font-size: 5em !important;
   margin-bottom: 0.4em;
@@ -100,8 +108,17 @@ p.image-attribution {
   width: 100%;
 }
 
+#slide-satisfaction-app p {
+  margin: 0;
+  padding: 0;
+}
+
 #slide-satisfaction-app img {
-  width: 50%;
+  width: 48%;
+}
+
+#slide-questions p {
+  text-align: center;
 }
 
 #slide-thanks h3 {

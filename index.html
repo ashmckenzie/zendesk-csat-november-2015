@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Predicting Customer Satisfaction): Using Pacman & Crystal Ball</title>
+    <title>Predicting Customer Satisfaction: With The Prediction App</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/twemoji-awesome.css">
@@ -13,7 +13,14 @@ name: main
 class: center, middle
 
 # Predicting Customer Satisfaction
-## Using Pacman & Crystal Ball
+## With The Prediction App
+<br/>
+### Ash McKenzie
+#### APAC Tech Lead DevOps Engineer
+
+???
+
+* Hello everyone, I'm Ash from the Melbourne Ops team
 
 ---
 
@@ -25,6 +32,10 @@ class: center, middle
 ### Prediction App
 ### Infrastructure
 
+???
+
+* We're going to cover the following topics
+
 ---
 
 layout: false
@@ -33,6 +44,10 @@ name: csat
 background-image: url(./images/scratching-head.jpg)
 
 # CSAT?
+
+???
+
+* Most of you are probably thinking 'what on earth is CSAT?'
 
 ---
 
@@ -58,6 +73,10 @@ background-image: url(./images/confused-donkey.jpg)
 
 # Pacman?
 
+???
+
+* Pacman?  What's this all about?
+
 ---
 
 layout: true
@@ -70,6 +89,7 @@ class: topic-template
 * Background service written in Clojure
 * Consumes ticket updates via Maxwell (Kafka)
 * Creates background jobs that are sent to Crystal Ball
+* Gets it's name because it gobbles data, just like Pacman <i class="twa twa-smile"></i>
 
 ---
 
@@ -79,6 +99,10 @@ name: crystal-ball
 background-image: url(./images/monkey-scratching-head.jpg)
 
 # Crystal Ball?
+
+???
+
+* Crystal Ball?  Are we dabbling in black arts now?
 
 ---
 
@@ -93,6 +117,10 @@ class: topic-template
 * Uses machine learning to create a data model for a customer
 * Generates a CSAT prediction for a given ticket update against the customers data model
 
+???
+
+* It's a rather apt name!
+
 ---
 
 layout: false
@@ -101,6 +129,10 @@ name: prediction-app
 background-image: url(./images/confused-baby.jpg)
 
 # Prediction App?
+
+???
+
+* Prediction App?  OK, you can probably guess what this is all about :)
 
 ---
 
@@ -115,12 +147,26 @@ name: csat-flow
 
 <img src="./images/csat-flow.png" />
 
+???
+
+* The Prediction App is the name given to Pacman & Crystal Ball collectively
+* Here you can see how all the pieces talk to each other
+* It starts with a ticket update within Classic
+* The ticket update is observed by Maxwell (which uses Kafka)
+* Pacman is listening to a particular topic in Maxwell and creates a background job bound for Crystal Ball
+* Crystal Ball then process the request and returns a CSAT score
+* The CSAT score is then written to the ticket via the Classic API
+
 ---
 
 layout: false
 class: center, middle
 
 # Infrastructure
+
+???
+
+* Not only is the application really intersting and unique, but so is the infrastructure setup
 
 ---
 
@@ -144,6 +190,33 @@ class: center
 name: satisfaction-app
 
 <img src="./images/satisfaction-app.png" />
+
+???
+
+* Here is an architectural diagram showing the proxy load balancer, proxies, app load balancers and app servers
+* You can see all the AWS infrastructure in orange, in this diagram, married to the SAC1 data center a VPN tunnel
+* The identical setup exists for infrastructure in the eu-central-1 AWS region which is married to the DUB1 data center, also via VPN tunnel
+* The main objective of this architecture is to ensure that a customers data model is only loaded into memory *once*
+* The second object of this architecture is not only to ensure the customers data model is only loaded once, but to also ensure durability in the event one or more of the app nodes are degraded
+
+---
+
+layout: true
+class: topic-template
+
+# Questions?
+
+---
+
+name: questions
+
+## Questions?
+
+[amckenzie@zendesk.com](mailto:amckenzie@zendesk.com)
+
+OR
+
+[bunyip@zendesk.com](mailto:bunyip@zendesk.com)
 
 ---
 
