@@ -79,7 +79,21 @@ p.image-attribution {
   margin-top: 0;
 }
 
+#slide-main h1 {
+  font-size: 4.8em !important;
+  margin-bottom: 0.4em;
+}
+
+#slide-me h1 {
+  font-size: 5em !important;
+  margin-bottom: 0.4em;
+}
+
 #slide-what-is-csat {
+  background-size: 100% 85%;
+}
+
+#slide-what-is-crystal-ball {
   background-size: 100% 85%;
 }
 
