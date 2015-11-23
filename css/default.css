@@ -114,6 +114,7 @@ p.image-attribution {
 }
 
 #slide-satisfaction-app img {
+  margin-top: 0.25em;
   width: 48%;
 }
 

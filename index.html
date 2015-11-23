@@ -20,7 +20,7 @@ class: center, middle
 
 ???
 
-* Hello everyone, I'm Ash from the Melbourne Ops team
+* Hello everyone, I'm Ash McKenzie from the Melbourne Ops team and I'm here to talk about
 
 ---
 
@@ -62,7 +62,7 @@ class: topic-template
 
 > In its simplest form, CSAT is expressed as a percentage between 0 and 100, with 100% representing complete customer satisfaction.
 
-Currently we ask the customer if they are satisfied but we would like to be proactive and predict this <i class="twa twa-smile"></i>
+Currently we rely upon the customer telling us if they are satisfied but we would like to be able to predict this in the future <i class="twa twa-smile"></i>
 
 ---
 
@@ -86,10 +86,10 @@ class: topic-template
 
 ---
 
+* Gets it's name because it gobbles data, just like the video game character
 * Background service written in Clojure
-* Consumes ticket updates via Maxwell (Kafka)
-* Creates background jobs that are sent to Crystal Ball
-* Gets it's name because it gobbles data, just like Pacman <i class="twa twa-smile"></i>
+* Consumes ticket updates via Maxwell (which talks to Kafka)
+* Creates background jobs that are ultimately sent to Crystal Ball for analysis
 
 ---
 
@@ -113,13 +113,10 @@ class: topic-template
 
 ---
 
+* It's a rather apt name once you understand what it does
 * HTTP API written in Python
-* Uses machine learning to create a data model for a customer
-* Generates a CSAT prediction for a given ticket update against the customers data model
-
-???
-
-* It's a rather apt name!
+* Uses machine learning to create a single data model for a customer
+* Generates a CSAT prediction from ticket updates for a given customer data model
 
 ---
 
@@ -132,7 +129,7 @@ background-image: url(./images/confused-baby.jpg)
 
 ???
 
-* Prediction App?  OK, you can probably guess what this is all about :)
+* Prediction App?  OK, you can probably guess what this one is all about :)
 
 ---
 
@@ -149,13 +146,13 @@ name: csat-flow
 
 ???
 
-* The Prediction App is the name given to Pacman & Crystal Ball collectively
-* Here you can see how all the pieces talk to each other
+* The Prediction App is the project name given to Pacman & Crystal Ball collectively
+* Here you can see how all the services talk to each other
 * It starts with a ticket update within Classic
 * The ticket update is observed by Maxwell (which uses Kafka)
-* Pacman is listening to a particular topic in Maxwell and creates a background job bound for Crystal Ball
+* Pacman listens to a particular topic in Maxwell and creates a background job which is bound for Crystal Ball
 * Crystal Ball then process the request and returns a CSAT score
-* The CSAT score is then written to the ticket via the Classic API
+* The CSAT score is then written back to the ticket via the Classic API
 
 ---
 
@@ -166,7 +163,7 @@ class: center, middle
 
 ???
 
-* Not only is the application really intersting and unique, but so is the infrastructure setup
+* Not only are Pacman & Crystal Ball really intersting and unique, but so is the infrastructure powering them
 
 ---
 
@@ -178,11 +175,11 @@ class: topic-template
 ---
 
 * First customer oriented application in AWS!
-* Managed by Chef but exists outside of our traditional DC setup in AWS
+* Managed by Chef but exists outside of our traditional DC setup
 * Two prediction app clusters:
   * us-west-1 (married to SAC1 DC)
   * eu-central-1 (married to DUB1 DC)
-* Both clusters have been completely recreated to more powerful instances
+* Both clusters have recently been completely recreated to more powerful instances (took a handful of hours)
 
 ---
 
@@ -194,10 +191,11 @@ name: satisfaction-app
 ???
 
 * Here is an architectural diagram showing the proxy load balancer, proxies, app load balancers and app servers
-* You can see all the AWS infrastructure in orange, in this diagram, married to the SAC1 data center a VPN tunnel
-* The identical setup exists for infrastructure in the eu-central-1 AWS region which is married to the DUB1 data center, also via VPN tunnel
-* The main objective of this architecture is to ensure that a customers data model is only loaded into memory *once*
-* The second object of this architecture is not only to ensure the customers data model is only loaded once, but to also ensure durability in the event one or more of the app nodes are degraded
+* You can see all the AWS infrastructure in orange, married to the SAC1 data center via a VPN tunnel
+* The identical setup exists for infrastructure in the eu-central-1 AWS region except it is married to the DUB1 data center and also connected via a VPN tunnel
+* The main objectives of this architecture are
+  * To ensure that a customers data model is only loaded into memory *once*
+  * And to ensure resilience in the event of one or more proxy, app load balancer or app node becoming degraded
 
 ---
 
@@ -218,6 +216,11 @@ OR
 
 [bunyip@zendesk.com](mailto:bunyip@zendesk.com)
 
+???
+
+* So that wraps up this presentation
+* If you have any questions about Pacman, Crystal Ball or anything else discussed in this presentation you can email myself or the Bunyip team who are the maintainers of Pacman and Crystal Ball.
+
 ---
 
 name: thanks
@@ -227,6 +230,10 @@ class: center, middle
 # Thanks!
 
 ### [amckenzie@zendesk.com](mailto:amckenzie@zendesk.com)
+
+???
+
+* Bye for now!
 
 
 <!-- ------------------------------------------------------------------------------------------- -->
