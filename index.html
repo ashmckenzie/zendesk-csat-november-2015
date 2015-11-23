@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Predicting Customer Satisfaction): Using Crystal Ball</title>
+    <title>Predicting Customer Satisfaction): Using Pacman & Crystal Ball</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/twemoji-awesome.css">
@@ -13,15 +13,15 @@ name: main
 class: center, middle
 
 # Predicting Customer Satisfaction
-## Using Crystal Ball
+## Using Pacman & Crystal Ball
 
 ---
 
 # Topics
 
 ### CSAT
-### Crystal Ball
 ### Pacman
+### Crystal Ball
 ### Prediction App
 ### Infrastructure
 
@@ -47,26 +47,7 @@ class: topic-template
 
 > In its simplest form, CSAT is expressed as a percentage between 0 and 100, with 100% representing complete customer satisfaction.
 
----
-
-layout: false
-class: center, middle
-name: crystal-ball
-background-image: url(./images/monkey-scratching-head.jpg)
-
-# Crystal Ball?
-
----
-
-layout: true
-class: topic-template
-
-# Crystal Ball
-
----
-
-* Python HTTP API
-* Generate a CSAT prediction for a given ticket update
+Currently we ask the customer if they are satisfied but we would like to be proactive and predict this <i class="twa twa-smile"></i>
 
 ---
 
@@ -86,7 +67,31 @@ class: topic-template
 
 ---
 
+* Background service written in Clojure
 * Consumes ticket updates via Maxwell (Kafka)
+* Creates background jobs that are sent to Crystal Ball
+
+---
+
+layout: false
+class: center, middle
+name: crystal-ball
+background-image: url(./images/monkey-scratching-head.jpg)
+
+# Crystal Ball?
+
+---
+
+layout: true
+class: topic-template
+
+# Crystal Ball
+
+---
+
+* HTTP API written in Python
+* Uses machine learning to create a data model for a customer
+* Generates a CSAT prediction for a given ticket update against the customers data model
 
 ---
 
