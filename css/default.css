@@ -100,6 +100,10 @@ p.image-attribution {
   width: 100%;
 }
 
+#slide-satisfaction-app img {
+  width: 50%;
+}
+
 #slide-thanks h3 {
   line-height: 20px;
 }

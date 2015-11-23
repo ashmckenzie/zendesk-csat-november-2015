@@ -17,21 +17,13 @@ class: center, middle
 
 ---
 
-name: me
-class: center, middle
-
-# Ash McKenzie
-
-<h3 style="margin-top: -40px">Tech Lead DevOps Engineer APAC</h3>
-
----
-
 # Topics
 
 ### CSAT
-### Prediction App
 ### Crystal Ball
 ### Pacman
+### Prediction App
+### Infrastructure
 
 ---
 
@@ -40,7 +32,7 @@ class: center, middle
 name: csat
 background-image: url(./images/scratching-head.jpg)
 
-# What is CSAT?
+# CSAT?
 
 ---
 
@@ -54,6 +46,26 @@ class: topic-template
 ## According to Wikipedia:
 
 > In its simplest form, CSAT is expressed as a percentage between 0 and 100, with 100% representing complete customer satisfaction.
+
+---
+
+layout: false
+class: center, middle
+name: crystal-ball
+background-image: url(./images/monkey-scratching-head.jpg)
+
+# Crystal Ball?
+
+---
+
+layout: true
+class: topic-template
+
+# Crystal Ball
+
+---
+
+?
 
 ---
 
@@ -81,20 +93,31 @@ name: csat-flow
 
 layout: false
 class: center, middle
-name: crystal-ball
-background-image: url(./images/monkey-scratching-head.jpg)
 
-# Crystal Ball?
+# Infrastructure
 
 ---
 
 layout: true
 class: topic-template
 
-# Crystal Ball
+# Infrastructure
 
 ---
 
+* First customer oriented application in AWS!
+* Managed by Chef but exists outside of our traditional DC setup in AWS
+* Two prediction app clusters:
+  * us-west-1 (married to SAC1 DC)
+  * eu-central-1 (married to DUB1 DC)
+* Both clusters have been completely recreated to more powerful instances
+
+---
+
+class: center
+name: satisfaction-app
+
+<img src="./images/satisfaction-app.png" />
 
 ---
 
