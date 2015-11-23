@@ -89,12 +89,15 @@ p.image-attribution {
   margin-bottom: 0.4em;
 }
 
-#slide-what-is-csat {
+#slide-csat,
+#slide-prediction-app,
+#slide-crystal-ball {
   background-size: 100% 85%;
 }
 
-#slide-what-is-crystal-ball {
-  background-size: 100% 85%;
+#slide-csat-flow img {
+  margin-top: 2em;
+  width: 100%;
 }
 
 #slide-thanks h3 {
